@@ -5,7 +5,7 @@
 ![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![PyPI Version](https://img.shields.io/pypi/v/sqshield.svg)
 
-SQShield is a command-line tool designed to detect potential SQL injection (SQLi) attacks in your queries. It leverages a pre-trained machine learning model to classify queries as either malicious or benign, helping you secure your applications against common database threats.
+SQShield is a command-line tool designed to detect potential SQL injection (SQLi) attacks in your queries. It leverages a custom-trained machine learning model to classify queries as either malicious or benign, helping you secure your applications against common database threats.
 
 ## Features
 
@@ -83,12 +83,12 @@ sqshield --version
 
 **Expected Output:**
 ```
-sqshield version : 0.1.0
+sqshield version : 0.1.1
 ```
 
 ## How It Works
 
-SQShield processes each input query by extracting a set of lexical features. These features, which include query length, keyword counts (e.g., `SELECT`, `UNION`), special character frequencies, and structural properties, are fed into a pre-trained LightGBM classification model. The model then predicts whether the query is `MALICIOUS` or `BENGIN`.
+SQShield processes each input query by extracting a set of lexical features. These features, which include query length, keyword counts (e.g., `SELECT`, `UNION`), special character frequencies, and structural properties, are fed into a LightGBM classification model trained specifically on SQL query patterns. The model then predicts whether the query is `MALICIOUS` or `BENGIN`.
 
 The model (`sql_injection_model.pkl`) is included with the package.
 
