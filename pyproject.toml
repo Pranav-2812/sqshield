@@ -1,0 +1,26 @@
+[project]
+name = "sqshield"
+version = "0.1.0"
+description = "CLI tool for Detecting SQL Injections"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Pranav Dhumale", email = "pranavdhumale2812@gmail.com" }
+]
+
+dependencies = [
+    "click",
+    "joblib",
+    "pandas",
+    "lightgbm",
+    "scikit-learn"
+]
+
+[project.scripts]
+sqshield = "sqshield.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+sqshield = ["model/sql_injection_model.pkl"]
