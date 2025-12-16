@@ -1,5 +1,5 @@
 import click
-from .predict import load_model, predict, preprocess_query
+from .predict import predict, preprocess_query
 from .__init__ import __version__
 @click.command()
 @click.argument("input", required=False)
@@ -18,8 +18,7 @@ def main(input, version, report):
         df = preprocess_query(input)
         click.echo(df.to_string(index=False))
         return
-    model = load_model()
-    result = predict(input, model)
+    result = predict(input)
     if result[0] == 1:
         click.echo("Query is MALICIOUS")
     else:
